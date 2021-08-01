@@ -1,1 +1,15 @@
 <h1>hello welcome to my products website</h1>
+
+<h2>there are <%= @products.count %> products</h2>
+
+<%= link_to "add a new product", new_product_path %>
+
+
+<ul>
+<% @products.each do |p| %>
+    <li class="products_list">
+     <p><%= p.name %></p>
+     <p><%= p.price %></p>
+    </li>
+<% end %>
+</ul>
