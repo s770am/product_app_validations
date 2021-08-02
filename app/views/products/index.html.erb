@@ -10,6 +10,7 @@
     <li class="products_list">
      <p><%= p.name %></p>
      <p><%= p.price %></p>
+     <%= link_to "view",  product_path(p)%>
     </li>
 <% end %>
 </ul>

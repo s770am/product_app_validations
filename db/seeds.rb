@@ -5,7 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Product.delete_all
+Review.delete_all
+
 
 shoe = Product.create(name: "shoe", price: 10, rating: 5)
-
 mask = Product.create(name: "mask", price:5, rating: 3)
+
+review1 = Review.create(user: "dovid.r", review_text: "this was amazing", review_rating: 6, product_id: Product.first[:id])
+review2 = Review.create(user: "dovid.r", review_text: "i hope this works", review_rating: 9, product_id: Product.first[:id])

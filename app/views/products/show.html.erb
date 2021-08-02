@@ -1,0 +1,20 @@
+<h1><%= @product.name %></h1>
+<%= link_to "back to home", products_path %>
+<div>
+     <p>name:<%= @product.name %></p>
+     <p>price:<%= @product.price %></p>
+     <p>rating:<%= @product.rating %></p>
+</div>
+
+<ul>
+<% @product.reviews.each do |r| %>
+<li>
+    <p>user: <%= r.user  %></p>
+   <p>how good was it (out of 10): <%= r.review_rating  %></p> 
+   <p>thoughts on the product: <%= r.review_text  %></p> 
+</li>
+<% end %>
+
+
+</ul>
+
