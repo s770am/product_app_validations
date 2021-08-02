@@ -4,6 +4,7 @@
      <p>name:<%= @product.name %></p>
      <p>price:<%= @product.price %></p>
      <p>rating:<%= @product.rating %></p>
+     <%= link_to "edit", edit_product_path(@product) %>
 </div>
 
 <ul>
