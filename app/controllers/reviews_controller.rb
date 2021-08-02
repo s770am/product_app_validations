@@ -9,7 +9,9 @@ class ReviewsController < ApplicationController
     def create
         @product = get_product
         @review = @product.reviews.build(review_params)
+        @product.sum_ratings
         if @review.save
+            @product.save
             redirect_to product_url(@product)
         else
             render :new
@@ -21,6 +23,8 @@ class ReviewsController < ApplicationController
         @review = Review.find(params[:id])
 
         if @review.delete
+            @product.sum_ratings
+            @product.save
             redirect_to product_url(@product)
         else
             flash.now[:alert] = "there was a problem"

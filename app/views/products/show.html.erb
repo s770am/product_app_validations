@@ -3,7 +3,13 @@
 <div>
      <p>name:<%= @product.name %></p>
      <p>price:<%= @product.price %></p>
-     <p>rating:<%= @product.rating %></p>
+     <p>rating:
+     <% if @product.rating == nil %>
+         none
+         <% else %>
+         <%= @product.rating %>
+         <% end %>
+    </p>
      <%= link_to "edit", edit_product_path(@product) %>
      <%= link_to "delete",  product_path(@product), method: :delete %>
 </div>
