@@ -8,12 +8,16 @@
      <%= link_to "delete",  product_path(@product), method: :delete %>
 </div>
 
+
+<h2>Reviews</h2>
+<%= link_to "add a review",  new_product_review_path(@product)%>
 <ul>
 <% @product.reviews.each do |r| %>
 <li>
     <p>user: <%= r.user  %></p>
    <p>how good was it (out of 10): <%= r.review_rating  %></p> 
    <p>thoughts on the product: <%= r.review_text  %></p> 
+   <%= link_to "delete this review", product_review_path(@product, r), method: :delete %>
 </li>
 <% end %>
 

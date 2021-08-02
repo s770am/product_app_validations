@@ -1,0 +1,26 @@
+<h1>add a review to <%= @review.product[:name] %> page</h1>
+
+<%= form_for([@product , @review]) do |f| %>
+        
+        <div>
+        <%= f.label :user %>
+        <%= f.text_field :user %>
+        </div>
+
+        <div>
+        <%= f.label :review_text %>
+        <%= f.text_area :review_text %>
+        </div>
+
+        <div>
+        <%= f.label :review_rating %>
+        <%= f.number_field :review_rating %>
+        </div>
+
+        <div>
+        <%= f.submit %>
+        </div>
+
+<% end %>
+  
+
