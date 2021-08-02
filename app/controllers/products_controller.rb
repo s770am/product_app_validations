@@ -34,7 +34,13 @@ class ProductsController < ApplicationController
     end
 
     def destroy
-        
+        @product = Product.find(params[:id])
+        if @product.delete
+            redirect_to products_url
+        else
+            flash.now[:alert] = "there was a problem"
+            redirect_to products_url
+        end
     end
 
     private
