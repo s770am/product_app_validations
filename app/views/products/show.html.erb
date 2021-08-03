@@ -1,32 +1,33 @@
-<h1><%= @product.name %></h1>
-<%= link_to "back to home", products_path %>
-<div>
-     <p>name:<%= @product.name %></p>
-     <p>price:<%= @product.price %></p>
-     <p>rating:
+<h1 class= "white center"><%= @product.name %></h1>
+<%= link_to "back to home", products_path, class: "top_btn" %>
+<div class = "off_white center ">
+     <p class="product_options">Name : <%= @product.name %></p>
+     <p class="product_options">Price : <%= @product.price %></p>
+     <p class="product_options">Rating :
      <% if @product.rating == nil %>
          none
          <% else %>
          <%= @product.rating %>
          <% end %>
     </p>
-     <%= link_to "edit", edit_product_path(@product) %>
-     <%= link_to "delete",  product_path(@product), method: :delete %>
+    <p class = "edit_delete yellow">
+     <%= link_to "Edit", edit_product_path(@product),class: "white" %> |
+     <%= link_to "Delete",  product_path(@product), method: :delete, class: "white" %>
+     </p>
 </div>
 
 
-<h2>Reviews</h2>
-<%= link_to "add a review",  new_product_review_path(@product)%>
-<ul>
+<h2 class= "top_btn wrap">Reviews</h2>
+<ul class= "off_white reviews">
 <% @product.reviews.each do |r| %>
 <li>
-    <p>user: <%= r.user  %></p>
-   <p>how good was it (out of 10): <%= r.review_rating  %></p> 
-   <p>thoughts on the product: <%= r.review_text  %></p> 
-   <%= link_to "delete this review", product_review_path(@product, r), method: :delete %>
+    <p>User : <%= r.user  %></p>
+   <p>How good was it (out of 10) : <%= r.review_rating  %></p> 
+   <p>Thoughts on the product : <%= r.review_text  %></p> 
+   <%= link_to "Delete this review", product_review_path(@product, r), method: :delete, class: "yellow" %>
 </li>
 <% end %>
-
-
 </ul>
+
+<%= link_to "add a review",  new_product_review_path(@product), class: "top_btn"%>
 

@@ -6,18 +6,18 @@
 
 <%= form_for(@product) do |f| %>
         
-        <div>
+        <div class="off_white form_options">
         <%= f.label :name %>
         <%= f.text_field :name %>
         </div>
 
-        <div>
+        <div  class="off_white form_options">
         <%= f.label :price %>
         <%= f.number_field :price, step: :any%>
         </div>
 
         <div>
-        <%= f.submit %>
+        <%= f.submit class: "top_btn"%>
         </div>
 
 <% end %>

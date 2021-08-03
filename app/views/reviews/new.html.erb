@@ -1,4 +1,4 @@
-<h1>add a review to <%= @review.product[:name] %> page</h1>
+<h1 class= "white center">Add a review to the <%= @review.product[:name] %> page</h1>
 
 <% if @review.errors.any? %>
   <% @review.errors.full_messages.each do |message|%>
@@ -8,23 +8,23 @@
 
 <%= form_for([@product , @review]) do |f| %>
         
-        <div>
+        <div class="off_white review_form">
         <%= f.label :user %>
         <%= f.text_field :user %>
         </div>
 
-        <div>
+        <div class="off_white review_form">
         <%= f.label :review_text %>
         <%= f.text_area :review_text %>
         </div>
 
-        <div>
+        <div class="off_white review_form">
         <%= f.label :review_rating %>
         <%= f.number_field :review_rating %>
         </div>
 
         <div>
-        <%= f.submit %>
+        <%= f.submit class: "top_btn"%>
         </div>
 
 <% end %>

@@ -1,3 +1,11 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.review_form{
+
+    margin: 2vw;
+    padding: 0.2vw;
+}
+#review_review_text {
+    border: black 0.5px solid;
+}
