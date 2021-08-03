@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_01_215912) do
+ActiveRecord::Schema.define(version: 2021_08_03_024042) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.integer "price"
+    t.decimal "price"
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
