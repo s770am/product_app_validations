@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: "products#index"
   resources :products do
     resources :reviews, except: [:update, :edit, :index, :show]
+    resource :users, only %i(new create update edit)
     end
 end
