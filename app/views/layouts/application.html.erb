@@ -11,7 +11,21 @@
   </head>
 
   <body>
-  <%= link_to "create account", new_users_path %>
+  <% if session[:user_id] %>
+    <%= link_to "sign out", sessions_path, method: :delete, class: "yellow sign_in" %>
+  <% else %>
+      <%= link_to "create account", new_users_path, class: "yellow sign_in" %>
+      <%= link_to "sign in", new_sessions_path, class: "yellow sign_in" %>
+  <% end %>
+
+  
+  <% flash.each do |type, msg| %>
+  <div>
+  <%= msg %>
+  </div>
+    
+  <% end %>
+  
     <%= yield %>
   </body>
 </html>
