@@ -13,8 +13,9 @@ class ReviewsController < ApplicationController
     def create
         @product = get_product
         @review = @product.reviews.build(review_params)
+        @review[:user_id] = current_user[:id]
         @product.sum_ratings
-        if @review.save
+        if @review.save 
             @product.save
             redirect_to product_url(@product)
         else
@@ -42,7 +43,7 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.require(:review).permit(:user, :review_text, :review_rating)
+        params.require(:review).permit(:review_text, :review_rating)
     end
 
     def require_login
@@ -53,6 +54,6 @@ class ReviewsController < ApplicationController
     end
 
     def require_ownership
-        
+
     end
 end

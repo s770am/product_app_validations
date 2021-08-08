@@ -21,7 +21,7 @@
 <ul class= "off_white reviews">
 <% @product.reviews.each do |r| %>
 <li>
-    <p>User : <%= r.user  %></p>
+    <p>User : <%= r.user.user_name  %></p>
    <p>How good was it (out of 10) : <%= r.review_rating  %></p> 
    <p>Thoughts on the product : <%= r.review_text  %></p> 
    <%= link_to "Delete this review", product_review_path(@product, r), method: :delete, class: "yellow" %>
