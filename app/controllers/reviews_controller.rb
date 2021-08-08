@@ -54,6 +54,12 @@ class ReviewsController < ApplicationController
     end
 
     def require_ownership
+        unless session[:user_id] == Review.find(params[:id]).user_id
+            flash.now[:alert] = "you must be logged in"
+            redirect_to root_url
+        end
 
     end
+
+
 end
