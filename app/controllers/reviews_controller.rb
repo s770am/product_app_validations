@@ -1,5 +1,9 @@
 class ReviewsController < ApplicationController
-    
+    before_action :require_login, exempt: [:destroy]
+    before_action :require_ownership, only: [:new, :create]
+
+
+
     def new
         @product = get_product
 @review = @product.reviews.build
@@ -27,7 +31,7 @@ class ReviewsController < ApplicationController
             @product.save
             redirect_to product_url(@product)
         else
-            flash.now[:alert] = "there was a problem"
+            flash.now[:alert] = "there was a problem with the deletion"
             redirect_to product_url(@product)
         end
     end
@@ -39,5 +43,16 @@ class ReviewsController < ApplicationController
 
     def review_params
         params.require(:review).permit(:user, :review_text, :review_rating)
+    end
+
+    def require_login
+        unless session[:user_id]
+            flash.now[:alert] = "you must be logged in"
+        redirect_to root_url
+        end 
+    end
+
+    def require_ownership
+        
     end
 end
